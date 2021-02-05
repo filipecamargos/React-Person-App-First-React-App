@@ -13,5 +13,14 @@ Components and JSX Review
 
 ---------------------------------------------------------------------------------------------
 
+Props & States Review
 
+- Changes done on props and react will lead React to rerender componenets and update the DOM
 
+- props: Allows to pass data from a parent to a child element ex: 
+    <Component dataX="X" dataY="Y"> Some Text </Component> the data is accessed with {} or props.children
+
+- state: Allows to manipulate the data in the class providing more dinamic approach. Only class-based 
+    components can define and use state.
+
+---------------------------------------------------------------------------------------------
