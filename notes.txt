@@ -1,0 +1,17 @@
+Components and JSX Review
+
+- Components are the core building block of React Apps
+- React is the library that allows us to create Components
+
+- React app can described as componenet tree, with one root and infinet nested child
+
+- Each componenets render/return some JSX code - which renders HTML to the DOM
+- JSX is not HTML but looks like it (className is class in HTML)
+- Its allow to write like HTML so it easier instead of using nested React.createElement()
+
+- When Handling Components you can do as function or as Class
+
+---------------------------------------------------------------------------------------------
+
+
+
