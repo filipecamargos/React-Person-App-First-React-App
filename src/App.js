@@ -18,12 +18,25 @@ class App extends Component {
       ],
     }
 
+    //The onClick button will handle this funtion that change the names
+    switchNameHandler = () => {
+      //Don't Change state directly: this.state.persons[0].name = "Bob Marley";
+      //Setters allows you to overide the other state
+      this.setState({
+        persons: [
+        { name:"Bob Marley", age:"50"},
+        { name:"Luke", age:"33"},
+        { name:"Mark", age:"40"},
+      ]}
+      )
+    }
+
 
     render() {
         return (
           <div className ="App">
             <h1> Hi this is my first React App </h1>
-            <button>Switch Name</button>
+            <button onClick={this.switchNameHandler}>Switch Name</button>
             <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
             <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>I like to code!</Person>
             <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
