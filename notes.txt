@@ -23,4 +23,8 @@ Props & States Review
 - state: Allows to manipulate the data in the class providing more dinamic approach. Only class-based 
     components can define and use state.
 
+- Its possible just like any other OOP language to add methods in the Class which can be called on events Handling
+    like onClick=method, however it is important to remember that to change a property in state you need to use
+    setState(pass the property that will be overwritten)
+
 ---------------------------------------------------------------------------------------------
