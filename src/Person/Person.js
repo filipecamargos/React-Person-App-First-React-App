@@ -8,7 +8,7 @@ const person = (props) => { //Pros are the values that are passed in the Person 
    //Children represent take the what is passed within the tag ex: <Person> some text </Person>
     return (
         <div>
-        <p>I'm {props.name}! I am {props.age} years old!</p>
+        <p onClick={props.refSwitchNameHandler}>I'm {props.name}! I am {props.age} years old!</p>
         <p>{props.children}</p>
         </div>
     );

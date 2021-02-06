@@ -18,30 +18,35 @@ class App extends Component {
   
   //method that uses setState store as a veriable JS new sintex if this was
   //If this was a method it would have to be called as function and would be executed right way
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
     this.setState({ 
       persons: [
         { name:"Bob Marley", age:"30"},
         { name:"Luke Hoge", age:"33"},
-        { name:"Mark Duny", age:"40"},
+        { name:newName, age:"40"},
       ],
     })
   }
 
 
   //What is render in the page
+  //Methods can be passed to method as a reference to it a parent componet like refSwitchNameHandler
+  //To pass paraments to methods uses switchNameHandler.bind(this, value) or wit arrow function that will not get executed
+  //automaticlly like () => this.switchNameHandler(value) - It can be a little slower
   render() {
     return (
       <div className ="App">
         <h1> Hi this is my first React App </h1>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person 
+        <button onClick={ () => this.switchNameHandler("Bruno Covas")}>Switch Name</button>
+        <a href="#" ><Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
-        />
+          refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
+        /></a>
         <Person 
           name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}>
+          age={this.state.persons[1].age}
+          >
             I like to code!
         </Person>
         <Person 
