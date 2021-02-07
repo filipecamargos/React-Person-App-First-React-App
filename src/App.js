@@ -45,10 +45,25 @@ class App extends Component {
   //To pass paraments to methods uses switchNameHandler.bind(this, value) or wit arrow function that will not get executed
   //automaticlly like () => this.switchNameHandler(value) - It can be a little slower
   render() {
+
+    //Can style in here
+    const style = {
+      backgroundColor: "white",
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: "pointer"
+    }
+
     return (
       <div className ="App">
         <h1> Hi this is my first React App </h1>
-        <button onClick={ () => this.switchNameHandler("Bruno Covas")}>Switch Name</button>
+        <button
+          onClick={ () => this.switchNameHandler("Bruno Covas")}
+          style={style}
+          >
+            Switch Name
+        </button>
         <a href="#" ><Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
