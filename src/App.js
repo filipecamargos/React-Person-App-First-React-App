@@ -14,6 +14,7 @@ class App extends Component {
       { name:"Luke", age:"33"},
       { name:"Mark", age:"37"},
     ],
+    showPerson: false
   }
   
   //method that uses setState store as a veriable JS new sintex if this was
@@ -39,6 +40,10 @@ class App extends Component {
     })
   }
 
+  //toggle method
+  toggleNameHandler = () => {
+
+  }
 
   //What is render in the page
   //Methods can be passed to method as a reference to it a parent componet like refSwitchNameHandler
@@ -59,28 +64,33 @@ class App extends Component {
       <div className ="App">
         <h1> Hi this is my first React App </h1>
         <button
-          onClick={ () => this.switchNameHandler("Bruno Covas")}
+          onClick={this.toggleNameHandler}
           style={style}
           >
             Switch Name
         </button>
-        <a href="#" >
-          <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}
-          refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
-          refNameChangeHandler={this.nameChangeHandler.bind()}
-        /></a>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          >
-            I like to code!
-        </Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age} 
-        />
+        { this.state.showPerson ? 
+            <div>
+              <a href="#" >
+                <Person 
+                name={this.state.persons[0].name} 
+                age={this.state.persons[0].age}
+                refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
+                refNameChangeHandler={this.nameChangeHandler.bind()}
+              /></a>
+              <Person 
+                name={this.state.persons[1].name} 
+                age={this.state.persons[1].age}
+                >
+                  I like to code!
+              </Person>
+              <Person 
+                name={this.state.persons[2].name} 
+                age={this.state.persons[2].age} 
+              />
+            </div> 
+          : null
+        }
       </div>
     ) };
 }
