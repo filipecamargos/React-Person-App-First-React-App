@@ -64,7 +64,8 @@ class App extends Component {
           >
             Switch Name
         </button>
-        <a href="#" ><Person 
+        <a href="#" >
+          <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
           refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
