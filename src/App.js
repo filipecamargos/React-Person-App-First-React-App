@@ -42,7 +42,8 @@ class App extends Component {
 
   //toggle method
   toggleNameHandler = () => {
-
+    const doesShow = this.state.showPerson;
+    this.setState({showPerson: !doesShow})
   }
 
   //What is render in the page
