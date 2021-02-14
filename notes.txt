@@ -28,3 +28,9 @@ Props & States Review
     setState(pass the property that will be overwritten)
 
 ---------------------------------------------------------------------------------------------
+
+Note:
+    - Every thing in React is JavaScript so you can output JSX based on conditions
+    - You can use variables that hold JSX (HTML Style) and display it
+    - You can handle list by Maping it and take advantage of the index
+    - Use key so React can update efficiently in the DOM
