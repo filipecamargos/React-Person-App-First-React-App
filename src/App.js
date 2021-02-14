@@ -50,7 +50,7 @@ class App extends Component {
   //Methods can be passed to method as a reference to it a parent componet like refSwitchNameHandler
   //To pass paraments to methods uses switchNameHandler.bind(this, value) or wit arrow function that will not get executed
   //automaticlly like () => this.switchNameHandler(value) - It can be a little slower
-  render() {
+  render() { //Everytimes render is called you code will ran
 
     //Can style in here
     const style = {
@@ -59,6 +59,35 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: "pointer"
+    }
+
+    //Variable are allowed to be created inside render
+    let persons  = null;
+
+    if (this.state.showPerson) {
+      //variables can hold ejx code
+      persons = (
+        <div>
+          <a href="#" >
+            <Person 
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age}
+            refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
+            refNameChangeHandler={this.nameChangeHandler.bind()}
+            />
+          </a>
+          <Person 
+            name={this.state.persons[1].name} 
+            age={this.state.persons[1].age}
+            >
+              I like to code!
+          </Person>
+          <Person 
+            name={this.state.persons[2].name} 
+            age={this.state.persons[2].age} 
+          />
+        </div> 
+      )
     }
 
     return (
@@ -70,28 +99,7 @@ class App extends Component {
           >
             Switch Name
         </button>
-        { this.state.showPerson ? 
-            <div>
-              <a href="#" >
-                <Person 
-                name={this.state.persons[0].name} 
-                age={this.state.persons[0].age}
-                refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
-                refNameChangeHandler={this.nameChangeHandler.bind()}
-              /></a>
-              <Person 
-                name={this.state.persons[1].name} 
-                age={this.state.persons[1].age}
-                >
-                  I like to code!
-              </Person>
-              <Person 
-                name={this.state.persons[2].name} 
-                age={this.state.persons[2].age} 
-              />
-            </div> 
-          : null
-        }
+        {persons}
       </div>
     ) };
 }
