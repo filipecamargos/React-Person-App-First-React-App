@@ -10,9 +10,9 @@ class App extends Component {
   //use state to determin properties
   state = {
     persons: [
-      { name:"Bob", age:"30"},
-      { name:"Luke", age:"33"},
-      { name:"Mark", age:"37"},
+      {id:"1", name:"Bob", age:"30"},
+      {id:"2", name:"Luke", age:"33"},
+      {id:"3", name:"Mark", age:"37"},
     ],
     showPerson: false
   }
@@ -75,6 +75,7 @@ class App extends Component {
                       clickRefDeletePerson={() => this.deletePersonHandler(index)}
                       name={person.name} 
                       age={person.age} 
+                      key={person.id}
                     />
             })
           }
