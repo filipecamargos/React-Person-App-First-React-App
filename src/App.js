@@ -17,16 +17,17 @@ class App extends Component {
     showPerson: false
   }
   
-  //method that uses setState store as a veriable JS new sintex if this was
-  //If this was a method it would have to be called as function and would be executed right way
-  switchNameHandler = (newName) => {
-    this.setState({ 
-      persons: [
-        { name:newName, age:"30"},
-        { name:"Luke Hoge", age:"33"},
-        { name:"Mark Douth", age:"40"},
-      ],
-    })
+  //Delete method to delete person
+  deletePersonHandler = (personIndex) => { 
+
+    //const persons = this.state.persons.slice();  Array are reference type you can use slice
+    //or the E6 feture the spread operator
+    const persons = [...this.state.persons];
+
+    persons.splice(personIndex, 1); 
+
+    this.setState({persons: persons})
+
   }
 
   //Method to change name
@@ -69,8 +70,9 @@ class App extends Component {
       //variables can hold jsx code 
       persons = (
         <div>
-          { this.state.persons.map(person => {
+          { this.state.persons.map((person, index) => {
             return <Person 
+                      clickRefDeletePerson={() => this.deletePersonHandler(index)}
                       name={person.name} 
                       age={person.age} 
                     />
