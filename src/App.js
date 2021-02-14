@@ -31,13 +31,31 @@ class App extends Component {
   }
 
   //Method to change name
-  nameChangeHandler = (event) => {
-    this.setState({ 
-      persons: [
-        { name:event.target.value, age:"30"},
-        { name:"Luke Hoge", age:"33"},
-        { name:"Mark Douth", age:"40"},
-      ],
+  nameChangeHandler = (event, id) => {
+
+    //findIndex will go through each element in the persons array
+    //then return true if that element.id == id required
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    })
+
+    //Use the object spred operator since array is reference type
+    //The object assigned could be used here Object.assign({}, this.state.person[personIndex])
+    const person = {
+      ...this.state.persons[personIndex]
+    }
+
+    //Change the name of person object
+    person.name = event.target.value;
+    
+    //creat a reference to the persons array in state
+    const persons = [...this.state.persons];
+    //Update the person with the new information
+    persons[personIndex] = person; 
+    
+    //Set the state
+    this.setState({
+      persons : persons
     })
   }
 
@@ -76,6 +94,7 @@ class App extends Component {
                       name={person.name} 
                       age={person.age} 
                       key={person.id}
+                      refNameChangeHandler={(event) => this.nameChangeHandler(event, person.id)}
                     />
             })
           }
