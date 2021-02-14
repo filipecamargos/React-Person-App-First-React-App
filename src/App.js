@@ -64,29 +64,19 @@ class App extends Component {
     //Variable are allowed to be created inside render
     let persons  = null;
 
+    //if show person is true we will assign the jsx to it
     if (this.state.showPerson) {
-      //variables can hold ejx code
+      //variables can hold jsx code 
       persons = (
         <div>
-          <a href="#" >
-            <Person 
-            name={this.state.persons[0].name} 
-            age={this.state.persons[0].age}
-            refSwitchNameHandler={this.switchNameHandler.bind(this, "Marcus Broke")}
-            refNameChangeHandler={this.nameChangeHandler.bind()}
-            />
-          </a>
-          <Person 
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            >
-              I like to code!
-          </Person>
-          <Person 
-            name={this.state.persons[2].name} 
-            age={this.state.persons[2].age} 
-          />
-        </div> 
+          { this.state.persons.map(person => {
+            return <Person 
+                      name={person.name} 
+                      age={person.age} 
+                    />
+            })
+          }
+        </div>
       )
     }
 
