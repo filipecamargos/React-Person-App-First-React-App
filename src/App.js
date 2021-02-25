@@ -1,8 +1,6 @@
 //React to allows to render and Componenet to allow creat components 
 import React, { Component } from 'react';
 import './App.css';
-//Import Radium a package to use inline css style such as hover and media queries
-import Radium, { StyleRoot } from 'radium';
 //User upercase for the your elements components beacause the lower are default for the HTML
 import Person from './Person/Person'; //inport from Person the function person
 
@@ -135,7 +133,6 @@ class App extends Component {
 
 
     return (
-      <StyleRoot>
         <div className ="App">
         <h1> Hi this is my first React App </h1>
         <p className={classesNames.join(' ')}>Remember React is just JavaScript</p>
@@ -147,14 +144,13 @@ class App extends Component {
         </button>
         {persons}
       </div>
-      </StyleRoot>
     ) };
 }
 
 
 
 //Export the class as default 
-export default Radium(App); //Hiher order component. The Radium will add the syntex to use inline style
+export default App; //Hiher order component. The Radium will add the syntex to use inline style
 
 
 
