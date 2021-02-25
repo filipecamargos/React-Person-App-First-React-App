@@ -73,12 +73,16 @@ class App extends Component {
 
     //Can style in here
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
       cursor: "pointer"
     }
+
+    //btn text
+    var btntext = "Show Names";
 
     //Variable are allowed to be created inside render
     let persons  = null;
@@ -100,6 +104,12 @@ class App extends Component {
           }
         </div>
       )
+
+      //set some css
+      style.backgroundColor = 'red';
+
+      //Change btn name
+      btntext = "Hide Names";
     }
 
     return (
@@ -109,7 +119,7 @@ class App extends Component {
           onClick={this.toggleNameHandler}
           style={style}
           >
-            Switch Name
+            {btntext}
         </button>
         {persons}
       </div>
