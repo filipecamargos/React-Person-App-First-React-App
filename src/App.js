@@ -1,6 +1,7 @@
 //React to allows to render and Componenet to allow creat components 
 import React, { Component } from 'react';
-import './App.css';
+import { css } from 'styled-components';
+import cssClasses from './App.css';
 //User upercase for the your elements components beacause the lower are default for the HTML
 import Person from './Person/Person'; //inport from Person the function person
 
@@ -71,8 +72,10 @@ class App extends Component {
   //automaticlly like () => this.switchNameHandler(value) - It can be a little slower
   render() { //Everytimes render is called you code will ran
 
-    //btn text
+    //btn text and style
     var btntext = "Show Names";
+    let btnClass = "";
+
 
     //Variable are allowed to be created inside render
     let persons  = null;
@@ -95,27 +98,28 @@ class App extends Component {
         </div>
       )
 
-      //Change btn name
+      //Change btn name and style
       btntext = "Hide Names";
+      btnClass = cssClasses.Red;
     }
 
     //Change style dynamically
     let classesNames = [];
 
     if (this.state.persons.length <= 2) {
-      classesNames.push('red');
+      classesNames.push(cssClasses.red);
     }
 
     if(this.state.persons.length <= 1) {
-      classesNames.push('bold');
+      classesNames.push(cssClasses.bold);
     }
 
 
     return (
-        <div className ="App">
+        <div className ={cssClasses.App}>
         <h1> Hi this is my first React App </h1>
         <p className={classesNames.join(' ')}>Remember React is just JavaScript</p>
-        <button className="btn" condition={this.state.showPerson} onClick={this.toggleNameHandler}>
+        <button className={btnClass} condition={this.state.showPerson} onClick={this.toggleNameHandler}>
            {btntext}
         </button>
         {persons}

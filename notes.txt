@@ -34,3 +34,9 @@ Note:
     - You can use variables that hold JSX (HTML Style) and display it
     - You can handle list by Maping it and take advantage of the index
     - Use key so React can update efficiently in the DOM
+----------------------------------------------------------------------------------------------
+Style:
+    - There are several options to style with react the most popular are
+        - Radium
+        - Styled
+        - CSS Modules - Supported with version > 2, wich allows you to use you style in the style file no need to eject
