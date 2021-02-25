@@ -8,8 +8,15 @@ import Radium from 'radium';
 const person = (props) => { //Pros are the values that are passed in the Person tag where it is imported
    //{} Curly braces take the data passed in the tag ex: <Person name="x" age="x" />
    //Children represent take the what is passed within the tag ex: <Person> some text </Person>
+
+   //Adding some style
+   const style = {
+       '@media (min-width: 500px)': {
+           width: '450px',
+       }
+   }
     return (
-        <div className="Person">
+        <div className="Person" style={style}>
         <p onClick={props.clickRefDeletePerson}>I'm {props.name}! I am {props.age} years old!</p>
         <p>{props.children}</p>
         <input type="text" onChange={props.refNameChangeHandler} value={props.name}></input>
