@@ -71,20 +71,6 @@ class App extends Component {
   //automaticlly like () => this.switchNameHandler(value) - It can be a little slower
   render() { //Everytimes render is called you code will ran
 
-    //Can style in here
-    const style = {
-      backgroundColor: "green",
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: "pointer",
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    }
-
     //btn text
     var btntext = "Show Names";
 
@@ -109,13 +95,6 @@ class App extends Component {
         </div>
       )
 
-      //set some css
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
-
       //Change btn name
       btntext = "Hide Names";
     }
@@ -136,11 +115,8 @@ class App extends Component {
         <div className ="App">
         <h1> Hi this is my first React App </h1>
         <p className={classesNames.join(' ')}>Remember React is just JavaScript</p>
-        <button
-          onClick={this.toggleNameHandler}
-          style={style}
-          >
-            {btntext}
+        <button className="btn" condition={this.state.showPerson} onClick={this.toggleNameHandler}>
+           {btntext}
         </button>
         {persons}
       </div>
