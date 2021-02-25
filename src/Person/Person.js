@@ -1,6 +1,8 @@
 //Make sure to import React so you can use it
 import React from 'react'
 import './Person.css';//import the css file
+//Import Radium a package to use inline css style such as hover and media queries
+import Radium from 'radium';
 
 //A component can be just a normal a function that return JSX
 const person = (props) => { //Pros are the values that are passed in the Person tag where it is imported
@@ -16,7 +18,7 @@ const person = (props) => { //Pros are the values that are passed in the Person 
 }
 
 //Make sure to export the person
-export default person;
+export default Radium(person);
 
 
 

@@ -1,8 +1,10 @@
 //React to allows to render and Componenet to allow creat components 
 import React, { Component } from 'react';
 import './App.css';
+//Import Radium a package to use inline css style such as hover and media queries
+import Radium from 'radium';
 //User upercase for the your elements components beacause the lower are default for the HTML
-import Person from './Person/Person' //inport from Person the function person
+import Person from './Person/Person'; //inport from Person the function person
 
 //Create a class APP
 class App extends Component {
@@ -78,7 +80,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: "pointer"
+      cursor: "pointer",
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     }
 
     //btn text
@@ -107,14 +113,31 @@ class App extends Component {
 
       //set some css
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
 
       //Change btn name
       btntext = "Hide Names";
     }
 
+    //Change style dynamically
+    let classesNames = [];
+
+    if (this.state.persons.length <= 2) {
+      classesNames.push('red');
+    }
+
+    if(this.state.persons.length <= 1) {
+      classesNames.push('bold');
+    }
+
+
     return (
       <div className ="App">
         <h1> Hi this is my first React App </h1>
+        <p className={classesNames.join(' ')}>Remember React is just JavaScript</p>
         <button
           onClick={this.toggleNameHandler}
           style={style}
@@ -129,7 +152,7 @@ class App extends Component {
 
 
 //Export the class as default 
-export default App;
+export default Radium(App); //Hiher order component. The Radium will add the syntex to use inline style
 
 
 
