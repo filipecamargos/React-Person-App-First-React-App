@@ -46,7 +46,7 @@ class App extends Component {
       ...this.state.persons[personIndex]
     }
 
-    //Change the name of person object
+    //Change the name of person object by getting the event
     person.name = event.target.value;
     
     //creat a reference to the persons array in state
