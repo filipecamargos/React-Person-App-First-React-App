@@ -4,6 +4,7 @@ import { css } from 'styled-components';
 import cssClasses from './App.css';
 //User upercase for the your elements components beacause the lower are default for the HTML
 import Person from './Person/Person'; //inport from Person the function person
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 //Create a class APP
 class App extends Component {
@@ -86,13 +87,14 @@ class App extends Component {
       persons = (
         <div>
           { this.state.persons.map((person, index) => {
-            return <Person 
-                      clickRefDeletePerson={() => this.deletePersonHandler(index)}
-                      name={person.name} 
-                      age={person.age} 
-                      key={person.id}
-                      refNameChangeHandler={(event) => this.nameChangeHandler(event, person.id)}
-                    />
+            return <ErrorBoundary key={person.id}>
+                    <Person 
+                        clickRefDeletePerson={() => this.deletePersonHandler(index)}
+                        name={person.name} 
+                        age={person.age} 
+                        refNameChangeHandler={(event) => this.nameChangeHandler(event, person.id)}
+                      />
+                    </ErrorBoundary>
             })
           }
         </div>
