@@ -1,28 +1,17 @@
-//Make sure to import React so you can use it
-import React from 'react'
-//Import CSS using CSS Modules
-import cssClasses from './Person.css'
+import React from 'react';
 
-//Creat  Person Component that takes props
-const person = (props) => { 
-    //Playing with Error Message
-    const rnd = Math.random();
+import classes from './Person.css';
 
-    if (rnd > 0.07) {
-        throw new Error('Something Wrong');
-    }
-    
-    return (
-        <div className={cssClasses.Person}>
-            <p onClick={props.clickRefDeletePerson}>I'm {props.name}! I am {props.age} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.refNameChangeHandler} value={props.name}></input>
-        </div>
-    );
-}
+const person = props => {
+  return (
+    <div className={classes.Person}>
+      <p onClick={props.click}>
+        I'm {props.name} and I am {props.age} years old!
+      </p>
+      <p>{props.children}</p>
+      <input type="text" onChange={props.changed} value={props.name} />
+    </div>
+  );
+};
 
-//Make sure to export the person
 export default person;
-
-
-
